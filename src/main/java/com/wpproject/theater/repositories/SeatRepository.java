@@ -1,7 +1,7 @@
 package com.wpproject.theater.repositories;
 
-import com.wpproject.theater.models.User;
+import com.wpproject.theater.models.Seat;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface SeatRepository extends JpaRepository<Seat, Long> {
 }

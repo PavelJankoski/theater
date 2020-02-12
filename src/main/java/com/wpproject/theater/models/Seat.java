@@ -13,14 +13,16 @@ import javax.persistence.*;
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     private int seatNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Scene sceneS;
+    @JoinColumn(name="scene_id")
+    private Scene theScene;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
     private User user;
 
 }

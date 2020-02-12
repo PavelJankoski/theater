@@ -2,10 +2,7 @@ package com.wpproject.theater.models;
 
 import lombok.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +13,9 @@ import java.util.List;
 @Setter
 public class Scene {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     private String name;
 
     private int capacity;
@@ -23,7 +23,7 @@ public class Scene {
     @OneToMany(mappedBy = "scene", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Show> shows = new ArrayList<Show>();
 
-    @OneToMany(mappedBy = "sceneS", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "theScene", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Seat> seats = new ArrayList<Seat>();
 
 
