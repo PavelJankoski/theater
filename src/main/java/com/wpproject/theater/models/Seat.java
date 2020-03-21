@@ -1,5 +1,6 @@
 package com.wpproject.theater.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,11 +18,15 @@ public class Seat {
 
     private int seatNo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    private int seatRow;
+
+    @ManyToOne
     @JoinColumn(name="scene_id")
+    @JsonIgnore
     private Scene theScene;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
 

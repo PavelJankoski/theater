@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -25,28 +23,29 @@ public class Show {
 
     private String description;
 
-    private LocalDate date;
-
     private String director;
 
     private String setDesigner;
 
-    @DateTimeFormat(pattern="HH:mm" )
-    @Column(name = "from_time")
-    private LocalTime from;
+    private String costumeDesigner;
 
-    @DateTimeFormat(pattern="HH:mm" )
-    @Column(name = "to_time")
-    private LocalTime to;
+    @Column(name = "from_time")
+    private LocalDateTime from;
+
+
+    private int duration;
 
     @Lob
-    private Byte[] image;
+    private byte[] image;
 
-    @ManyToMany(targetEntity = Actor.class, fetch = FetchType.EAGER)
-    List<Actor> actors;
+    @ManyToMany(targetEntity = Actor.class)
+    private List<Actor> actors;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="scene_name")
+    @ManyToOne
+    @JoinColumn(name="scene_id")
     private Scene scene;
+
+    @OneToMany
+    private List<Rating> showRating;
 
 }

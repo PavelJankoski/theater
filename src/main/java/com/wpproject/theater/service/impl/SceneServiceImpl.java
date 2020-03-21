@@ -24,10 +24,11 @@ public class SceneServiceImpl implements SceneService {
     }
 
     @Override
-    public Scene createScene(Scene scene) {
+    public Scene createScene(Scene scene, int seatsInRow) {
         for(int i = 1;i<scene.getCapacity()+1;i++){
             Seat seat = new Seat();
-            seat.setSeatNo(i);
+            seat.setSeatNo(i!=seatsInRow?i%seatsInRow:seatsInRow);
+            seat.setSeatRow(i!=seatsInRow ?((i/seatsInRow) + 1):(i/seatsInRow));
             seat.setTheScene(scene);
             scene.getSeats().add(seat);
         }

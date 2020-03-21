@@ -22,4 +22,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Seat> seats = new ArrayList<Seat>();
 
+    @OneToMany(mappedBy = "userRating")
+    private List<Rating> ratings = new ArrayList<>();
+
 }

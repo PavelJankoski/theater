@@ -1,6 +1,10 @@
 package com.wpproject.theater.models;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -20,9 +24,13 @@ public class Scene {
 
     private int capacity;
 
+    private int seatsInRow;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "scene", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Show> shows = new ArrayList<Show>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "theScene", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Seat> seats = new ArrayList<Seat>();
 

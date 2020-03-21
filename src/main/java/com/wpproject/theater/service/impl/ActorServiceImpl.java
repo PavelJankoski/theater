@@ -21,6 +21,7 @@ public class ActorServiceImpl implements ActorService {
         return this.actorRepository.findAll();
     }
 
+
     @Override
     public Actor createActor(Actor actor) {
         return this.actorRepository.save(actor);
@@ -31,7 +32,6 @@ public class ActorServiceImpl implements ActorService {
         Actor a = this.actorRepository.findById(actor.getId()).orElseThrow(InvalidActorIdException::new);
         a.setName(actor.getName());
         a.setSurname(actor.getSurname());
-        a.setBirthday(actor.getBirthday());
         return this.actorRepository.save(a);
     }
 
