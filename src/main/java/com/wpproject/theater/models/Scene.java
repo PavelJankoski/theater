@@ -30,7 +30,7 @@ public class Scene {
     @OneToMany(mappedBy = "scene", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Show> shows = new ArrayList<Show>();
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "theScene", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Seat> seats = new ArrayList<Seat>();
 

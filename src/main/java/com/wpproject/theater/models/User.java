@@ -20,7 +20,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Seat> seats = new ArrayList<Seat>();
+    private List<SeatReservation> seats = new ArrayList<SeatReservation>();
 
     @OneToMany(mappedBy = "userRating")
     private List<Rating> ratings = new ArrayList<>();

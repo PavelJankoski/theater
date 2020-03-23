@@ -40,7 +40,7 @@ const ShowDetails =(props) =>{
                         <div className="row">
                             <div className="col-12">
                                 <div className="row float-right" style={{marginTop: '17px', marginRight: '10px'}}>
-                                    <Link to={"/shows/" + (showId) + "/details"} className="btn btn-sm btn-primary float-right"
+                                    <Link to={"/shows/" + (showId) + "/edit"} className="btn btn-sm btn-primary float-right"
                                        style={{fontSize: '27px', marginRight: '10px'}}><i className="fa fa-edit"></i> </Link>
                                     <Link to={"/shows"} onClick={()=> {props.onDelete(showId); history.push("/shows");}} className="btn btn-sm delete float-right" style={{fontSize: '27px'}}><i
                                         className="fa fa-trash"></i> </Link>

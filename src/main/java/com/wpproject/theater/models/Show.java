@@ -45,7 +45,12 @@ public class Show {
     @JoinColumn(name="scene_id")
     private Scene scene;
 
-    @OneToMany
+    @OneToMany(mappedBy = "showRating")
     private List<Rating> showRating;
+
+    @OneToMany(mappedBy = "showSeats", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SeatReservation> showSeats;
+
+
 
 }

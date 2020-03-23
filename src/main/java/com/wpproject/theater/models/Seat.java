@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -25,9 +26,9 @@ public class Seat {
     @JsonIgnore
     private Scene theScene;
 
+
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user;
+    @OneToMany(mappedBy = "seats")
+    private List<SeatReservation> seats;
 
 }

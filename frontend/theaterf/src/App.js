@@ -12,6 +12,7 @@ import ShowDetails from "./components/ShowDetails/showDetails";
 import CreateShow from "./components/CreateEditShow/CreateShow/createShow";
 import EditShow from "./components/CreateEditShow/EditShow/editShow";
 import ShowsService from "./repository/axiosShowsRepository";
+import ListSeats from "./components/SelectSeats/ListSeats/listSeats";
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
     const [actors, setActors] = useState([]);
     const [scenes, setScenes] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [pageSize, setPageSize] = useState(1);
+    const [pageSize, setPageSize] = useState(6);
     const [page, setPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
 
@@ -139,6 +140,9 @@ function App() {
           </Route>
           <Route path={"/shows/:showId/details"} exact render={()=>
               <ShowDetails shows={shows} refreshShows={listShowsPaged} onDelete={deleteShow}/>}>
+          </Route>
+          <Route path={"/schedule/:showId/seats"} exact render={()=>
+              <ListSeats/>}>
           </Route>
           <Route path={"/schedule"} exact render={()=>
               <ScheduleList shows={shows}/>}>

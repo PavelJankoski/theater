@@ -27,26 +27,23 @@ const ScheduleCard = (props) =>{
                          alt={props.show.title}/>
                         <div className="col-12 col-md-5 mt-4"
                              style={{paddingLeft: '20px', color: '#444444', fontSize: '16px'}}>
-                            <img style={{width: '30px', display: 'inline-block'}} src={Logo}/>
-                                <p className="title"
-                                   style={{display:'inline-block', marginTop:'3px', fontSize: '17px', textTransform: 'capitalize', fontWeight: 'bold'}}>
-                                     {props.show.title}</p>
-                                <p style={{marginBottom: '4px !important'}}>Duration: <span
-                                    id="duration">
+                            <img style={{width: '30px', display: 'inline-block', marginRight: '5px'}} src={Logo}/>
+                                <p style={{display:'inline-block', position: 'relative', top:'5px', fontSize: '25px', textTransform: 'capitalize', fontWeight: 'bold'}}>
+                                       {props.show.title}</p>
+                                <p style={{marginBottom: '4px !important'}}><span style={{fontWeight: 'bold'}}>Duration:</span> {props.show.duration} minutes</p>
+
                                     {/*<Moment diff={Date.now()} unit="days">{props.show.from}</Moment>*/}
-                                    {props.show.duration}
-                                </span> minutes</p>
-                                <p>Location: <span className="sceneName">{props.show.scene.name}</span></p>
+
+                            <p><span style={{fontWeight: 'bold'}}>Location:</span> {props.show.scene.name}</p>
                         </div>
                         <div className="col-12 col-md-3" style={{alignSelf: 'center'}}>
                             <div className="row pl-3 pr-3">
                                 <Link to={"shows/" + props.showId + "/details"} className="btn btn-md btn-primary mt-3 p-2 col-5 col-md-12" href="#"
                                    style={{textAlign: 'center', whiteSpace: 'nowrap'}}>View show</Link>
-                                <a className="btn btn-md  btn-primary mt-3 p-2 ml-auto col-5 col-md-12"
-                                   href="selectSeats.html"
+                                <Link to={"/schedule/" + props.showId + "/seats"} className="btn btn-md  btn-primary mt-3 p-2 ml-auto col-5 col-md-12"
                                    style={{textAlign: 'center', whiteSpace: 'nowrap'}}><i
                                     className="fa fa-shopping-cart"/> Buy
-                                    tickets</a>
+                                    tickets</Link>
 
 
                             </div>

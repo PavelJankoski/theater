@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ShowRepository extends PagingAndSortingRepository<Show, Long> {
 
-    List<Show> findAll();
+    List<Show> findAllByOrderByFrom();
 
 
    List<Show> findByTitleContainingIgnoreCase(String title);

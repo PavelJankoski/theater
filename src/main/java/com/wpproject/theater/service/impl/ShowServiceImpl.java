@@ -1,7 +1,9 @@
 package com.wpproject.theater.service.impl;
 
+import com.wpproject.theater.models.SeatReservation;
 import com.wpproject.theater.models.Show;
 import com.wpproject.theater.models.exceptions.InvalidShowNameException;
+import com.wpproject.theater.repositories.SeatReservationRepository;
 import com.wpproject.theater.repositories.ShowRepository;
 import com.wpproject.theater.service.ShowService;
 import org.springframework.data.domain.Page;
@@ -18,9 +20,11 @@ import java.util.List;
 @Service
 public class ShowServiceImpl implements ShowService {
     private final ShowRepository showRepository;
+    private final SeatReservationRepository seatReservationRepository;
 
-    public ShowServiceImpl(ShowRepository showRepository) {
+    public ShowServiceImpl(ShowRepository showRepository, SeatReservationRepository seatReservationRepository) {
         this.showRepository = showRepository;
+        this.seatReservationRepository = seatReservationRepository;
     }
 
 
@@ -33,12 +37,21 @@ public class ShowServiceImpl implements ShowService {
 
     @Override
     public List<Show> getAllShows() {
-        return this.showRepository.findAll();
+        return this.showRepository.findAllByOrderByFrom();
     }
 
     @Override
     public Show createShow(Show show){
-        return this.showRepository.save(show);
+        this.showRepository.save(show);
+        for(int i =0;i<show.getScene().getSeats().size();i++){
+            SeatReservation sr = new SeatReservation();
+            sr.setSeats(show.getScene().getSeats().get(i));
+            sr.setShowSeats(show);
+            sr.setFree(true);
+            this.seatReservationRepository.save(sr);
+        }
+
+        return show;
     }
 
     @Override

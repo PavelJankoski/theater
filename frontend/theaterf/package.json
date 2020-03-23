@@ -16,9 +16,12 @@
     "react-checkbox-group": "^5.0.2",
     "react-dom": "^16.13.0",
     "react-moment": "^0.9.7",
+    "react-native-progress-steps": "^1.2.9",
     "react-paginate": "^6.3.2",
     "react-rating": "^2.0.4",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "react-step-progress-bar": "^1.0.3",
+    "rsuite": "^4.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

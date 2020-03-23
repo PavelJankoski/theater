@@ -17,13 +17,16 @@ public class DataHolder {
     private final SceneRepository sceneRepository;
     private final UserRepository userRepository;
     private final ShowRepository showRepository;
+    private final SeatReservationRepository seatReservationRepository;
 
-    public DataHolder(ActorRepository actorRepository, SeatRepository seatRepository, SceneRepository sceneRepository, UserRepository userRepository, ShowRepository showRepository) {
+
+    public DataHolder(ActorRepository actorRepository, SeatRepository seatRepository, SceneRepository sceneRepository, UserRepository userRepository, ShowRepository showRepository, SeatReservationRepository seatReservationRepository) {
         this.actorRepository = actorRepository;
         this.seatRepository = seatRepository;
         this.sceneRepository = sceneRepository;
         this.userRepository = userRepository;
         this.showRepository = showRepository;
+        this.seatReservationRepository = seatReservationRepository;
     }
 
     @PostConstruct
@@ -47,6 +50,9 @@ public class DataHolder {
         Scene scene = new Scene();
         scene.setCapacity(5);
         scene.setName("Scene1");
+        Scene scene2 = new Scene();
+        scene2.setCapacity(15);
+        scene2.setName("Scene2");
         User user = new User();
         user.setName("Kire");
         user.setEmail("kire@hotmail.com");
@@ -57,12 +63,23 @@ public class DataHolder {
             seat.setTheScene(scene);
             scene.getSeats().add(seat);
         }
+        for(int i = 1;i<scene2.getCapacity()+1;i++){
+            Seat seat = new Seat();
+            seat.setSeatNo(i%15);
+            seat.setSeatRow((i/15) + 1);
+            seat.setTheScene(scene2);
+            scene2.getSeats().add(seat);
+        }
+        scene.setSeatsInRow(1);
+        scene2.setSeatsInRow(5);
         this.sceneRepository.save(scene);
+        this.sceneRepository.save(scene2);
         this.userRepository.save(user);
         Show s1 = new Show();
         Show s2 = new Show();
         Show s3 = new Show();
         Show s4 = new Show();
+
         s1.setTitle("Title1");
         s1.setDescription("Descirption1");
         s1.setDirector("DirectorName1 DirectorSurname1");
@@ -76,6 +93,7 @@ public class DataHolder {
         sActors.add(actor2);
         sActors.add(actor4);
         s1.setActors(sActors);
+
         s2.setTitle("Title2");
         s2.setDescription("Descirption2");
         s2.setDirector("DirectorName2 DirectorSurname2");
@@ -83,7 +101,7 @@ public class DataHolder {
         s2.setCostumeDesigner("Costume designer2");
         s2.setFrom(LocalDateTime.of(2020,6,1,6,30));
         s2.setDuration(120);
-        s2.setScene(scene);
+        s2.setScene(scene2);
         ArrayList<Actor> sActors1 = new ArrayList<>();
         sActors1.add(actor);
         sActors1.add(actor3);
@@ -116,6 +134,20 @@ public class DataHolder {
         this.showRepository.save(s2);
         this.showRepository.save(s3);
         this.showRepository.save(s4);
+        for(int i =0;i<scene.getSeats().size();i++){
+            SeatReservation sr = new SeatReservation();
+            sr.setSeats(scene.getSeats().get(i));
+            sr.setShowSeats(s1);
+            sr.setFree(true);
+            this.seatReservationRepository.save(sr);
+        }
+        for(int i =0;i<scene2.getSeats().size();i++){
+            SeatReservation sr = new SeatReservation();
+            sr.setSeats(scene2.getSeats().get(i));
+            sr.setShowSeats(s2);
+            sr.setFree(true);
+            this.seatReservationRepository.save(sr);
+        }
 //        Seat s = this.seatRepository.findById((long)1).orElseThrow(InvalidUserIdException::new);
 //        s.setUser(user);
 //        this.seatRepository.save(s);

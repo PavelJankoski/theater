@@ -10,8 +10,14 @@ const showCard =(props)=>{
             <div className="overlay">
                 <div className="items"></div>
                 <div className="items head">
-                    <p>{props.show.title}</p>
-                    <hr/>
+                    <div className="row">
+                        <div className="col-6" style={{margin:'0 0 5px 5px'}}>
+                            <p>{props.show.title}</p>
+                        </div>
+                        <div className="col-12"><hr/></div>
+                    </div>
+
+
                 </div>
                 <div className="items descriptionC">
 

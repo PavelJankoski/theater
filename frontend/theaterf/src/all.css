@@ -1,12 +1,21 @@
 body{
-    width: 90%;
-    height: 90%;
     margin: auto !important;
     background-image: url(./images/background-image.jpg);
     background-size: 100% 100%;
     color: #444444 !important;
 
 }
+@media(max-width: 550px){
+    body{
+        width: 100%;
+    }
+}
+@media(min-width: 550px){
+    body{
+        width: 90%;
+    }
+}
+
 
 .navbar{
     border-bottom: 4px solid rgb(40,68,79);
@@ -127,7 +136,6 @@ i {
 
 .naslov{
     text-shadow: rgb(253,212,166) 1px 0 10px;
-    white-space: nowrap;
     font-weight:bolder;
     color:rgb(40,68,79);
     text-transform: uppercase;
@@ -372,7 +380,7 @@ input[type="text"]::placeholder
 
 }
 .head p{
-    width:330px;
+    width:320px;
     line-height: 28px;
     position: relative;
     bottom: 18px;
@@ -411,7 +419,7 @@ input[type="text"]::placeholder
     transform: translateY(0px);
 }
 .containerC:hover .overlay hr {
-    width: 330px;
+    width: 320px;
     transition-delay: 0.4s;
 }
 .containerC:hover .overlay .descriptionC {
@@ -632,4 +640,8 @@ input[type="text"]::placeholder
 .page-item.active .page-link{
     background-color: rgb(40,68,79);
     border-color: rgb(40,68,79);
+}
+
+.page-item:not(.disabled){
+    cursor: pointer;
 }
