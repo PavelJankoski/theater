@@ -56,8 +56,8 @@ const ShowDetails =(props) =>{
 
                                             <div id="starRating">
                                                 <Rating
-                                                    emptySymbol="fa fa-star-o fa"
-                                                    fullSymbol="fa fa-star fa"
+                                                    emptySymbol="far fa-star"
+                                                    fullSymbol="fa fa-star"
                                                 />
                                                 <div id="ratingText">(4.5/5) out of 20 rating(s)</div>
                                             </div>
@@ -139,8 +139,8 @@ const ShowDetails =(props) =>{
                                                 type="button" className="btn btn-secondary btn-lg">Back
                                         </Link>
 
-                                        <a className="nav-link hoverableBox ml-3 mr-3" href="selectSeats.html"
-                                           style={{border:'1px solid rgb(250,189,100)', color: 'rgb(40,68,79)',  textAlign: 'center', borderRadius: '.25rem', transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out', whiteSpace: 'nowrap'}}>Reserve</a>
+                                        <Link to={"/schedule"} className="nav-link hoverableBox ml-3 mr-3"
+                                           style={{border:'1px solid rgb(250,189,100)', color: 'rgb(40,68,79)',  textAlign: 'center', borderRadius: '.25rem', transition: 'color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out', whiteSpace: 'nowrap'}}>Reserve</Link>
 
 
                                     </div>

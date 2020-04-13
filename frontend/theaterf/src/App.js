@@ -151,9 +151,10 @@ function App() {
         <Contact/>}>
         </Route>
           <Redirect to={"/"}/>
-      </Router>
 
+      </Router>
         <Footer/>
+
 
     </div>
   );

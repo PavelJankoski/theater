@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Footer = () => {
     return(
         <footer className="page-footer font-small pt-4 position-sticky">
@@ -10,20 +11,20 @@ const Footer = () => {
 
 
                     <a href="https://www.facebook.com/">
-                        <i className="fa fa-facebook-square fa-3x mr-4"></i>
+                        <i className="fab fa-facebook-square fa-3x mr-4"></i>
                     </a>
 
-                    <a href="www.twitter.com">
-                        <i className="fa fa-twitter-square fa-3x mr-4"></i>
+                    <a href="https://www.twitter.com">
+                        <i className="fab fa-twitter-square fa-3x mr-4"></i>
                     </a>
 
 
-                    <a href="www.instagram.com">
-                        <i className="fa fa-instagram fa-3x mr-4"></i>
+                    <a href="https://www.instagram.com">
+                        <i className="fab fa-instagram fa-3x mr-4"></i>
                     </a>
 
-                    <a href="www.pintrest.com">
-                        <i className="fa fa-pinterest-square fa-3x"></i>
+                    <a href="https://www.pinterest.com">
+                        <i className="fab fa-pinterest-square fa-3x"></i>
                     </a>
 
                 </div>

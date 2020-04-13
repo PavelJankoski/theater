@@ -43,10 +43,10 @@ public class DataHolder {
         Actor actor4 = new Actor();
         actor4.setName("ActorName4");
         actor4.setSurname("ActorSurame4");
-        actorRepository.save(actor);
-        actorRepository.save(actor2);
-        actorRepository.save(actor3);
-        actorRepository.save(actor4);
+//        actorRepository.save(actor);
+//        actorRepository.save(actor2);
+//        actorRepository.save(actor3);
+//        actorRepository.save(actor4);
         Scene scene = new Scene();
         scene.setCapacity(5);
         scene.setName("Scene1");
@@ -72,9 +72,9 @@ public class DataHolder {
         }
         scene.setSeatsInRow(1);
         scene2.setSeatsInRow(5);
-        this.sceneRepository.save(scene);
-        this.sceneRepository.save(scene2);
-        this.userRepository.save(user);
+//        this.sceneRepository.save(scene);
+//        this.sceneRepository.save(scene2);
+//        this.userRepository.save(user);
         Show s1 = new Show();
         Show s2 = new Show();
         Show s3 = new Show();
@@ -130,23 +130,23 @@ public class DataHolder {
         sActors3.add(actor4);
         sActors3.add(actor2);
         s4.setActors(sActors3);
-        this.showRepository.save(s1);
-        this.showRepository.save(s2);
-        this.showRepository.save(s3);
-        this.showRepository.save(s4);
+//        this.showRepository.save(s1);
+//        this.showRepository.save(s2);
+//        this.showRepository.save(s3);
+//        this.showRepository.save(s4);
         for(int i =0;i<scene.getSeats().size();i++){
             SeatReservation sr = new SeatReservation();
             sr.setSeats(scene.getSeats().get(i));
             sr.setShowSeats(s1);
             sr.setFree(true);
-            this.seatReservationRepository.save(sr);
+//            this.seatReservationRepository.save(sr);
         }
         for(int i =0;i<scene2.getSeats().size();i++){
             SeatReservation sr = new SeatReservation();
             sr.setSeats(scene2.getSeats().get(i));
             sr.setShowSeats(s2);
             sr.setFree(true);
-            this.seatReservationRepository.save(sr);
+//            this.seatReservationRepository.save(sr);
         }
 //        Seat s = this.seatRepository.findById((long)1).orElseThrow(InvalidUserIdException::new);
 //        s.setUser(user);

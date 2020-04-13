@@ -18,7 +18,7 @@ const Contact = () => {
                 <div className="row">
                     <div className="col-12 col-lg-4 d-flex justify-content-center" style={{textAlign: 'center'}}>
                         <div className="row">
-                            <div className="col-12"><i className="fa fa-map-marker fa-5x socIc"></i></div>
+                            <div className="col-12"><i className="fas fa-map-marker-alt fa-5x socIc"></i></div>
                             <div className="col-12"><h3 style={{textTransform: 'uppercase'}}>Address</h3>
                                 <p>6950 S. Jordan Road
                                     Centennial, CO 80112</p></div>

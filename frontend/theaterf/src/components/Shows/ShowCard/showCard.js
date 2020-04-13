@@ -28,7 +28,7 @@ const showCard =(props)=>{
                         details <i className="fa fa-angle-double-right"></i></Link>
                     <Link to={"shows/" + props.showId + "/edit"} className="btn btn-sm btn-primary" style={{fontSize: '27px', margin: '0 6px 23px 90px'}}><i
                         className="fa fa-edit"></i> </Link>
-                    <a onClick={()=>props.onDelete(props.showId)} className="btn btn-sm delete" style={{fontSize: '27px', marginBottom: '23px'}}><i
+                    <a onClick={()=>props.onDelete(props.showId)} className="btn btn-sm delete" style={{fontSize: '27px', marginBottom: '23px', cursor: 'pointer'}}><i
                         className="fa fa-trash"></i> </a>
                 </div>
             </div>

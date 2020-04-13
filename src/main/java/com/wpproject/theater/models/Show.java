@@ -1,5 +1,6 @@
 package com.wpproject.theater.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,11 +33,7 @@ public class Show {
     @Column(name = "from_time")
     private LocalDateTime from;
 
-
     private int duration;
-
-    @Lob
-    private byte[] image;
 
     @ManyToMany(targetEntity = Actor.class)
     private List<Actor> actors;
@@ -46,11 +43,14 @@ public class Show {
     private Scene scene;
 
     @OneToMany(mappedBy = "showRating")
+    @JsonIgnore
     private List<Rating> showRating;
 
     @OneToMany(mappedBy = "showSeats", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SeatReservation> showSeats;
 
+    @Lob
+    private byte[] image;
 
 
 }
