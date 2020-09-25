@@ -72,7 +72,7 @@ const ListShows =(props)=>{
 
 
             <div className="row d-flex flex-row-reverse mt-4" style={{marginRight: '12%'}}>
-                <Link to={"/shows/add"} className="btn btn-lg btn-primary" style={{padding:'10px 25px 10px 22px', fontSize:'1.3em'}}><i className="fa fa-plus"></i> Create
+                <Link id="createShowButton" to={"/shows/add"} className="btn btn-lg btn-primary" style={{padding:'10px 25px 10px 22px', fontSize:'1.3em'}}><i className="fa fa-plus"></i> Create
                     Show</Link>
             </div>
 

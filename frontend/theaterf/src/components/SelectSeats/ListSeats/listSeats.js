@@ -5,7 +5,6 @@ import Moment from "react-moment";
 import AvailableSeat from '../../../images/available-seat.png';
 import SelectedSeat from  '../../../images/selected-seat.png';
 import TakenSeat from '../../../images/taken-seat.png';
-import StepsBar from "../../Schedule/StepsBar/stepsBar";
 
 const ListSeats = ()=>{
 

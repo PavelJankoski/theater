@@ -39,7 +39,7 @@ public class SceneController {
     @PutMapping("/{sceneId}")
     public ResponseEntity<Scene> updateScene(@PathVariable long sceneId, @RequestBody Scene scene){
         scene.setId(sceneId);
-        return ResponseEntity.ok().body(this.sceneService.updateScene(scene));
+        return ResponseEntity.ok().body(this.sceneService.updateScene(scene, sceneId));
     }
 
     @DeleteMapping("/{sceneId}")

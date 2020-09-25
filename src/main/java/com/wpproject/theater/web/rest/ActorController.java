@@ -47,4 +47,5 @@ public class ActorController {
         this.actorService.deleteActor(actorId);
         return HttpStatus.OK;
     }
+
 }

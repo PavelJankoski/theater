@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Scene {
@@ -34,6 +34,10 @@ public class Scene {
     @OneToMany(mappedBy = "theScene", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Seat> seats = new ArrayList<Seat>();
 
-
+    public Scene(String name, int capacity, int seatsInRow){
+        this.name = name;
+        this.capacity = capacity;
+        this.seatsInRow = seatsInRow;
+    }
 
 }

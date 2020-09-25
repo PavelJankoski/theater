@@ -45,4 +45,6 @@ public class ActorServiceImpl implements ActorService {
     public Actor findActorById(long id) {
         return this.actorRepository.findById(id).orElseThrow(InvalidActorIdException::new);
     }
+
+
 }

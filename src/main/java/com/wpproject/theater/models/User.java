@@ -19,7 +19,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private String surname;
+    private String userName;
+    private String password;
     private String email;
+    private boolean active;
+    private String roles;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<SeatReservation> seats = new ArrayList<SeatReservation>();

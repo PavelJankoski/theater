@@ -28,8 +28,15 @@ public class SceneServiceImpl implements SceneService {
 
         for(int i = 1;i<scene.getCapacity()+1;i++){
             Seat seat = new Seat();
-            seat.setSeatNo(i%seatsInRow!=0?i%seatsInRow:seatsInRow);
-            seat.setSeatRow(i%seatsInRow!=0 ?((i/seatsInRow) + 1):(i/seatsInRow));
+            if(i%seatsInRow!=0){
+                seat.setSeatNo(i%seatsInRow);
+                seat.setSeatRow(((i/seatsInRow) + 1));
+            }
+            else{
+                seat.setSeatNo(seatsInRow);
+                seat.setSeatRow((i/seatsInRow));
+            }
+
             seat.setTheScene(scene);
             scene.getSeats().add(seat);
 
@@ -38,7 +45,8 @@ public class SceneServiceImpl implements SceneService {
     }
 
     @Override
-    public Scene updateScene(Scene scene) {
+    public Scene updateScene(Scene scene, long sceneId) {
+        scene.setId(sceneId);
         Scene s = this.sceneRepository.findById(scene.getId()).orElseThrow(InvalidSceneNameException::new);
         if(s.getCapacity()!=scene.getCapacity()){
             int capacity = s.getCapacity() - scene.getCapacity();

@@ -199,7 +199,7 @@ const CreateShow = (props) => {
                             </select>
                         </div>
                         <div className="col-2 text-center m-auto">
-                            <button type="button" data-toggle="modal" data-target="#createScene"
+                            <button id="createSceneButton" type="button" data-toggle="modal" data-target="#createScene"
                                     className="btn btn-sm btn-primary pt-2 pr-2 mt-3" style={{borderRadius: '50%'}}><i
                                 className="fa fa-plus fa-2x"></i></button>
                         </div>

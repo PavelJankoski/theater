@@ -29,7 +29,7 @@ const collapseNav = ()=>{
                                     <NavLink onClick={()=>collapseNav()} exact className="nav-link" to={"/"} >Home</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink onClick={()=>collapseNav()} className="nav-link" to={"/shows"}>Shows</NavLink>
+                                    <NavLink id="showsNavItem" onClick={()=>collapseNav()} className="nav-link" to={"/shows"}>Shows</NavLink>
                                 </li>
 
                                 <li className="nav-item">
